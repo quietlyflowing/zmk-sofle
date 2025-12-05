@@ -38,7 +38,7 @@ layers:
   - J
   - {t: K, h: '$$mdi:apple-keyboard-option$$'}
   - {t: L, h: RIGHT GUI}
-  - {t: '$$mdi:apple-keyboard-control$$', h: ;}
+  - {t: ;, h: '$$mdi:apple-keyboard-control$$', s: ':'}
   - {t: '''', s: '"'}
   - layer3
   - Z
