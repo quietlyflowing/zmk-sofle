@@ -27,6 +27,11 @@
 
 &soft_off { hold-time-ms = <2000>; };
 
+&mt {
+    tapping-term-ms = <140>;
+    flavor = "balanced";
+};
+
 / {
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
@@ -84,7 +89,7 @@
 &kp F1      &kp F2    &kp F3         &kp F4  &kp F5  &kp F6           &mmv MOVE_UP     &kp F7   &kp F8    &kp F9    &kp F10    &kp F11           &kp F12
 &trans      &trans    &trans         &trans  &trans  &mkp MB4         &mmv MOVE_DOWN   &trans   &trans    &kp UP    &trans     &kp MINUS         &kp EQUAL
 &kp INSERT  &kp HOME  &kp PAGE_UP    &trans  &trans  &mkp MB5         &mmv MOVE_LEFT   &trans   &kp LEFT  &kp DOWN  &kp RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans      &kp END   &kp PAGE_DOWN  &trans  &trans  &trans           &mmv MOVE_RIGHT  &trans   &trans    &trans    &trans     &trans            &trans
+&trans      &kp END   &kp PAGE_DOWN  &trans  &trans  &kp RCTRL        &mmv MOVE_RIGHT  &trans   &trans    &trans    &trans     &trans            &trans
 &kp C_MUTE  &trans    &trans         &trans  &trans  &kp BACKSPACE    &mkp LCLK        &kp DEL  &trans    &trans    &trans     &trans
             >;
 
