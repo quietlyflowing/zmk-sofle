@@ -393,9 +393,11 @@ layers:
 combos:
 - p: [28, 40, 14]
   k: '&soft_off'
-- p: [40, 41, 42]
-  k: Ctl+X
-- p: [41, 42, 43]
-  k: Ctl+C
-- p: [42, 43, 44]
-  k: Ctl+V
+- p: [26, 27]
+  k: {t: '$$mdi:apple-keyboard-control$$', h: '$$mdi:gesture-tap-hold$$'}
+- p: [28, 27]
+  k: LEFT WIN
+- p: [28, 29]
+  k: {t: '$$mdi:apple-keyboard-option$$', h: '$$mdi:gesture-tap-hold$$'}
+- p: [15, 16]
+  k: {t: '$$mdi:apple-keyboard-option$$', h: '$$mdi:gesture-tap-hold$$'}
