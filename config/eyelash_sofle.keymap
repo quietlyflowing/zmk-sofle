@@ -52,19 +52,24 @@
             key-positions = <28 40 14>;
         };
 
-        Cortar {
-            bindings = <&kp LC(X)>;
-            key-positions = <40 41 42>;
+        st_ctrl {
+            bindings = <&sk LCTRL>;
+            key-positions = <26 27>;
         };
 
-        Copiar {
-            bindings = <&kp LC(C)>;
-            key-positions = <41 42 43>;
+        lwin {
+            bindings = <&kp LEFT_WIN>;
+            key-positions = <28 27>;
         };
 
-        Pegar {
-            bindings = <&kp LC(V)>;
-            key-positions = <42 43 44>;
+        st_lalt {
+            bindings = <&sk LEFT_ALT>;
+            key-positions = <28 29>;
+        };
+
+        st_ralt {
+            bindings = <&sk RIGHT_ALT>;
+            key-positions = <15 16>;
         };
     };
 
