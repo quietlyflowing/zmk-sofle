@@ -40,7 +40,7 @@ layers:
   - L
   - {t: ;, s: ':'}
   - {t: '''', s: '"'}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:apple-keyboard-shift$$
   - Z
   - X
   - C
@@ -52,19 +52,19 @@ layers:
   - {t: ',', s: <}
   - {t: ., s: '>'}
   - {t: /, s: '?'}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:apple-keyboard-shift$$
   - $$mdi:volume-off$$
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-option$$
   - {t: Fn/Nav, h: toggle}
-  - {t: '$$mdi:keyboard-return$$', type: enter}
-  - $$mdi:apple-keyboard-shift$$
+  - {t: '$$mdi:backspace$$', type: backspace}
   - Ctl+V
-  - $$mdi:apple-keyboard-shift$$
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:keyboard-space$$
   - {t: Bluetooth, h: toggle}
-  - APPLICATION
-  - PRINTSCREEN
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-control$$
   Fn/Nav:
   - F1
   - F2
@@ -401,3 +401,5 @@ combos:
   k: {t: '$$mdi:apple-keyboard-option$$', h: '$$mdi:gesture-tap-hold$$'}
 - p: [15, 16]
   k: {t: '$$mdi:apple-keyboard-option$$', h: '$$mdi:gesture-tap-hold$$'}
+- p: [39, 51]
+  k: $$mdi:apple-keyboard-caps$$
