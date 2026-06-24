@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/hid-io/plover_hid.h>
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
@@ -33,6 +34,15 @@
 };
 
 / {
+    behaviors {
+        // Plover HID steno key. Arg = key index, use PLV_* macros.
+        // e.g. &plv PLV_SL  &plv PLV_TL  &plv PLV_A  &plv PLV_NM
+        plv: plover_hid {
+            compatible = "zmk,behavior-plover-hid";
+            #binding-cells = <1>;
+        };
+    };
+
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
