@@ -54,7 +54,7 @@ layers:
   - {t: /, s: '?'}
   - $$mdi:apple-keyboard-shift$$
   - $$mdi:volume-off$$
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: Steno, h: toggle}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:apple-keyboard-shift$$
   - Fn/Nav
@@ -195,12 +195,81 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
+  Steno:
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - '&plv PLV_NM'
+  - '&plv PLV_NM'
+  - '&plv PLV_NM'
+  - '&plv PLV_NM'
+  - '&plv PLV_NM'
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - '&plv PLV_NM'
+  - '&plv PLV_NM'
+  - '&plv PLV_NM'
+  - '&plv PLV_NM'
+  - '&plv PLV_NM'
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - '&plv PLV_SL'
+  - '&plv PLV_TL'
+  - '&plv PLV_PL'
+  - '&plv PLV_HL'
+  - '&plv PLV_ST'
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - '&plv PLV_ST'
+  - '&plv PLV_FR'
+  - '&plv PLV_PR'
+  - '&plv PLV_LR'
+  - '&plv PLV_TR'
+  - '&plv PLV_DR'
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - '&plv PLV_SL'
+  - '&plv PLV_KL'
+  - '&plv PLV_WL'
+  - '&plv PLV_RL'
+  - '&plv PLV_ST'
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - '&plv PLV_ST'
+  - '&plv PLV_RR'
+  - '&plv PLV_BR'
+  - '&plv PLV_GR'
+  - '&plv PLV_SR'
+  - '&plv PLV_ZR'
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: Base, h: toggle}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - '&plv PLV_A'
+  - '&plv PLV_O'
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - '&plv PLV_E'
+  - '&plv PLV_U'
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: Base, h: toggle}
 combos:
 - p: [61, 55]
   k: $$mdi:apple-keyboard-caps$$
+  l: [Base, Fn/Nav, Bluetooth]
 - p: [40, 41, 42]
   k: Ctl+X
+  l: [Base, Fn/Nav, Bluetooth]
 - p: [41, 42, 43]
   k: Ctl+C
+  l: [Base, Fn/Nav, Bluetooth]
 - p: [42, 43, 44]
   k: Ctl+V
+  l: [Base, Fn/Nav, Bluetooth]
