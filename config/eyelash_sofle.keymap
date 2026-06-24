@@ -52,21 +52,25 @@
         kp_bloqm {
             bindings = <&kp CAPSLOCK>;
             key-positions = <61 55>;
+            layers = <0 1 2>;
         };
 
         kp_cut {
             bindings = <&kp LC(X)>;
             key-positions = <40 41 42>;
+            layers = <0 1 2>;
         };
 
         kp_copy {
             bindings = <&kp LC(C)>;
             key-positions = <41 42 43>;
+            layers = <0 1 2>;
         };
 
         kp_paste {
             bindings = <&kp LC(V)>;
             key-positions = <42 43 44>;
+            layers = <0 1 2>;
         };
     };
 
@@ -79,7 +83,7 @@
 &kp TAB         &kp Q   &kp W   &kp E           &kp R   &kp T            &kp LC(C)  &kp Y      &kp U      &kp I       &kp O    &kp P     &kp BSLH
 &kp ESC         &kp A   &kp S   &kp D           &kp F   &kp G            &kp LC(Z)  &kp H      &kp J      &kp K       &kp L    &kp SEMI  &kp APOS
 &kp LEFT_SHIFT  &kp Z   &kp X   &kp C           &kp V   &kp B            &kp LC(Y)  &kp N      &kp M      &kp COMMA   &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
-&kp C_MUTE      &trans  &trans  &kp LEFT_SHIFT  &mo 1   &kp BACKSPACE    &kp LC(V)  &kp ENTER  &kp SPACE  &kp RSHIFT  &trans   &trans
+&kp C_MUTE      &to 3   &trans  &kp LEFT_SHIFT  &mo 1   &kp BACKSPACE    &kp LC(V)  &kp ENTER  &kp SPACE  &kp RSHIFT  &trans   &trans
             >;
 
             display-name = "Base";
@@ -107,6 +111,24 @@
             >;
 
             display-name = "Bluetooth";
+        };
+
+        // Plover steno. Enter with &to 3 (base left thumb), exit with &to 0.
+        // Layout (standard English stenotype):
+        //   #  #  #  #  #       #  #  #  #  #
+        //   S- T- P- H- *       *  -F -P -L -T -D
+        //   S- K- W- R- *       *  -R -B -G -S -Z
+        //            A- O-    -E -U
+        layer3 {
+            bindings = <
+&none   &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM      &none    &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &none
+&none   &plv PLV_SL  &plv PLV_TL  &plv PLV_PL  &plv PLV_HL  &plv PLV_ST      &none    &plv PLV_ST  &plv PLV_FR  &plv PLV_PR  &plv PLV_LR  &plv PLV_TR  &plv PLV_DR
+&none   &plv PLV_SL  &plv PLV_KL  &plv PLV_WL  &plv PLV_RL  &plv PLV_ST      &none    &plv PLV_ST  &plv PLV_RR  &plv PLV_BR  &plv PLV_GR  &plv PLV_SR  &plv PLV_ZR
+&none   &none        &none        &none        &none        &none            &none    &none        &none        &none        &none        &none        &none
+&to 0   &none        &none        &none        &plv PLV_A   &plv PLV_O       &none    &plv PLV_E   &plv PLV_U   &none        &none        &to 0
+            >;
+
+            display-name = "Steno";
         };
     };
 };
