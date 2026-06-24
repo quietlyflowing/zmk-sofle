@@ -43,14 +43,6 @@
         };
     };
 
-    scroll_encoder: scroll_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-
-        tap-ms = <100>;
-    };
-
     behaviors {
     };
 
@@ -90,7 +82,6 @@
 &kp C_MUTE      &trans  &trans  &kp LEFT_SHIFT  &mo 1   &kp BACKSPACE    &kp LC(V)  &kp ENTER  &kp SPACE  &kp RSHIFT  &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
             display-name = "Base";
         };
 
@@ -104,7 +95,6 @@
             >;
 
             display-name = "Fn/Nav";
-            sensor-bindings = <&scroll_encoder>;
         };
 
         layer2 {
@@ -117,7 +107,6 @@
             >;
 
             display-name = "Bluetooth";
-            sensor-bindings = <&scroll_encoder>;
         };
     };
 };
