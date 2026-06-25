@@ -3,12 +3,13 @@
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/hid-io/plover_hid.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/hid-io/plover_hid.h>
+#include <dt-bindings/zmk/rgb.h>
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
@@ -37,6 +38,7 @@
     behaviors {
         // Plover HID steno key. Arg = key index, use PLV_* macros.
         // e.g. &plv PLV_SL  &plv PLV_TL  &plv PLV_A  &plv PLV_NM
+
         plv: plover_hid {
             compatible = "zmk,behavior-plover-hid";
             #binding-cells = <1>;
@@ -49,28 +51,40 @@
     combos {
         compatible = "zmk,combos";
 
-        kp_bloqm {
-            bindings = <&kp CAPSLOCK>;
-            key-positions = <61 55>;
-            layers = <0 1 2>;
-        };
-
         kp_cut {
             bindings = <&kp LC(X)>;
-            key-positions = <40 41 42>;
-            layers = <0 1 2>;
+            key-positions = <40 41>;
+            layers = <0 1 4>;
         };
 
         kp_copy {
             bindings = <&kp LC(C)>;
-            key-positions = <41 42 43>;
-            layers = <0 1 2>;
+            key-positions = <42 41>;
+            layers = <0 1 4>;
         };
 
         kp_paste {
             bindings = <&kp LC(V)>;
-            key-positions = <42 43 44>;
-            layers = <0 1 2>;
+            key-positions = <43 44>;
+            layers = <0 4 1>;
+        };
+
+        kp_esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <0 13>;
+            layers = <0 4 1>;
+        };
+
+        kp_caps {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <39 51>;
+            layers = <0 4>;
+        };
+
+        to_stno {
+            bindings = <&to 3>;
+            key-positions = <28 46 18 23>;
+            layers = <0 4>;
         };
     };
 
@@ -79,11 +93,11 @@
 
         layer0 {
             bindings = <
-&kp GRAVE       &kp N1  &kp N2  &kp N3          &kp N4  &kp N5           &kp LC(X)  &kp N6     &kp N7     &kp N8      &kp N9   &kp N0    &kp DELETE
-&kp TAB         &kp Q   &kp W   &kp E           &kp R   &kp T            &kp LC(C)  &kp Y      &kp U      &kp I       &kp O    &kp P     &kp BSLH
-&kp ESC         &kp A   &kp S   &kp D           &kp F   &kp G            &kp LC(Z)  &kp H      &kp J      &kp K       &kp L    &kp SEMI  &kp APOS
-&kp LEFT_SHIFT  &kp Z   &kp X   &kp C           &kp V   &kp B            &kp LC(Y)  &kp N      &kp M      &kp COMMA   &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
-&kp C_MUTE      &to 3   &trans  &kp LEFT_SHIFT  &mo 1   &kp BACKSPACE    &kp LC(V)  &kp ENTER  &kp SPACE  &kp RSHIFT  &trans   &trans
+&kp GRAVE       &kp N1  &kp N2    &kp N3    &kp N4  &kp N5           &kp LC(X)  &kp N6     &kp N7     &kp N8         &kp N9    &kp N0    &kp DELETE
+&kp TAB         &kp Q   &kp W     &kp E     &kp R   &kp T            &kp LC(C)  &kp Y      &kp U      &kp I          &kp O     &kp P     &kp BSLH
+&kp RCTRL       &kp A   &kp S     &kp D     &kp F   &kp G            &kp LC(Z)  &kp H      &kp J      &kp K          &kp L     &kp SEMI  &kp APOS
+&kp LEFT_SHIFT  &kp Z   &kp X     &kp C     &kp V   &kp B            &kp LC(Y)  &kp N      &kp M      &kp COMMA      &kp DOT   &kp FSLH  &kp RIGHT_SHIFT
+&kp C_MUTE      &trans  &kp LWIN  &kp LALT  &mo 1   &kp BACKSPACE    &kp LC(V)  &kp ENTER  &kp SPACE  &kp RIGHT_ALT  &kp RWIN  &trans
             >;
 
             display-name = "Base";
@@ -91,11 +105,11 @@
 
         layer1 {
             bindings = <
-&kp F1      &kp F2     &kp F3        &kp F4        &kp F5  &kp F6    &mmv MOVE_UP     &kp F7  &kp F8    &kp F9    &kp F10    &kp F11           &kp F12
-&trans      &trans     &sk RALT      &sk LEFT_WIN  &trans  &trans    &mmv MOVE_DOWN   &trans  &trans    &kp UP    &trans     &kp MINUS         &kp EQUAL
-&trans      &sk LCTRL  &sk LEFT_ALT  &kp LEFT_WIN  &trans  &trans    &kp LA(LS(TAB))  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans      &trans     &trans        &trans        &trans  &trans    &kp LA(TAB)      &trans  &trans    &trans    &trans     &trans            &kp PRINTSCREEN
-&kp C_MUTE  &to 2      &trans        &trans        &trans  &trans    &mkp LCLK        &trans  &trans    &trans    &trans     &trans
+&kp F1           &kp F2           &kp F3           &kp F4           &kp F5           &kp F6    &mmv MOVE_UP     &kp F7           &kp F8    &kp F9    &kp F10    &kp F11           &kp F12
+&trans           &trans           &mkp LCLK        &mkp MCLK        &mkp RCLK        &trans    &mmv MOVE_DOWN   &kp PRINTSCREEN  &trans    &kp UP    &trans     &kp MINUS         &kp EQUAL
+&rgb_ug RGB_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_SPI  &rgb_ug RGB_EFF  &trans    &mmv MOVE_LEFT   &trans           &kp LEFT  &kp DOWN  &kp RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&trans           &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_SPD  &trans           &trans    &mmv MOVE_RIGHT  &trans           &trans    &trans    &trans     &trans            &trans
+&kp C_MUTE       &to 2            &trans           &trans           &trans           &trans    &mkp LCLK        &trans           &trans    &trans    &trans     &to 4
             >;
 
             display-name = "Fn/Nav";
@@ -103,11 +117,11 @@
 
         layer2 {
             bindings = <
-&kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp F6  &kp F7  &kp F8   &kp F9   &kp F10    &trans
-&trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &trans  &trans  &kp F11  &kp F12  &kp UNDER  &kp PLUS
-&trans     &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   &trans  &trans  &trans   &trans   &kp LBRC   &kp RBRC
-&trans     &sys_reset    &trans          &bootloader   &trans        &trans          &mmv MOVE_RIGHT  &trans  &trans  &trans   &trans   &trans     &trans
-&trans     &to 0         &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans   &trans   &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &trans  &trans  &kp F8   &kp F9   &kp F10    &trans
+&trans  &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &trans  &trans  &kp F11  &kp F12  &kp UNDER  &kp PLUS
+&trans  &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   &trans  &trans  &trans   &trans   &kp LBRC   &kp RBRC
+&trans  &trans        &trans          &trans        &trans        &trans          &mmv MOVE_RIGHT  &trans  &trans  &trans   &trans   &trans     &trans
+&trans  &to 0         &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans   &trans   &trans
             >;
 
             display-name = "Bluetooth";
@@ -119,16 +133,28 @@
         //   S- T- P- H- *       *  -F -P -L -T -D
         //   S- K- W- R- *       *  -R -B -G -S -Z
         //            A- O-    -E -U
+
         layer3 {
             bindings = <
-&none   &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM      &none    &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &none
-&none   &plv PLV_SL  &plv PLV_TL  &plv PLV_PL  &plv PLV_HL  &plv PLV_ST      &none    &plv PLV_ST  &plv PLV_FR  &plv PLV_PR  &plv PLV_LR  &plv PLV_TR  &plv PLV_DR
-&none   &plv PLV_SL  &plv PLV_KL  &plv PLV_WL  &plv PLV_RL  &plv PLV_ST      &none    &plv PLV_ST  &plv PLV_RR  &plv PLV_BR  &plv PLV_GR  &plv PLV_SR  &plv PLV_ZR
-&none   &none        &none        &none        &none        &none            &none    &none        &none        &none        &none        &none        &none
-&to 0   &none        &none        &none        &plv PLV_A   &plv PLV_O       &none    &plv PLV_E   &plv PLV_U   &none        &none        &to 0
+&none   &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM    &none  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &plv PLV_NM  &none
+&none   &plv PLV_SL  &plv PLV_TL  &plv PLV_PL  &plv PLV_HL  &plv PLV_ST    &none  &plv PLV_ST  &plv PLV_FR  &plv PLV_PR  &plv PLV_LR  &plv PLV_TR  &plv PLV_DR
+&none   &plv PLV_SL  &plv PLV_KL  &plv PLV_WL  &plv PLV_RL  &plv PLV_ST    &none  &plv PLV_ST  &plv PLV_RR  &plv PLV_BR  &plv PLV_GR  &plv PLV_SR  &plv PLV_ZR
+&none   &none        &none        &none        &none        &none          &none  &none        &none        &none        &none        &none        &none
+&trans  &to 0        &none        &none        &plv PLV_A   &plv PLV_O     &none  &plv PLV_E   &plv PLV_U   &none        &none        &to 0
             >;
 
             display-name = "Steno";
+        };
+
+        layer4 {
+            display-name = "Colemk";
+            bindings = <
+&kp GRAVE       &kp N1  &kp N2    &kp N3    &kp N4  &kp N5           &kp LC(X)  &kp N6     &kp N7     &kp N8         &kp N9    &kp N0         &kp DELETE
+&kp TAB         &kp Q   &kp W     &kp F     &kp P   &kp B            &kp LC(C)  &kp J      &kp L      &kp U          &kp Y     &kp SEMICOLON  &kp BSLH
+&kp RCTRL       &kp A   &kp R     &kp S     &kp T   &kp G            &kp LC(Z)  &kp M      &kp N      &kp E          &kp I     &kp O          &kp APOS
+&kp LEFT_SHIFT  &kp Z   &kp X     &kp C     &kp D   &kp V            &kp LC(Y)  &kp K      &kp H      &kp COMMA      &kp DOT   &kp FSLH       &kp RIGHT_SHIFT
+&kp C_MUTE      &trans  &kp LWIN  &kp LALT  &mo 1   &kp BACKSPACE    &kp LC(V)  &kp ENTER  &kp SPACE  &kp RIGHT_ALT  &kp RGUI  &trans
+            >;
         };
     };
 };
