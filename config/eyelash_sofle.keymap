@@ -29,6 +29,35 @@
 
 &soft_off { hold-time-ms = <2000>; };
 
+/* --- Haptic feedback smoke test: badjeff/zmk-output-behavior-listener ---
+ * Forces the module's C to compile against the pinned ZMK v0.3.0 (via
+ * dt_compat auto-enable). gpio0.4 is a placeholder pin (compile-only;
+ * not validated as physically free). Remove if build fails / when done. */
+#define OUTPUT_SOURCE_KEYCODE_STATE_CHANGE 3
+
+/ {
+    erm0: output_generic_0 {
+        compatible = "zmk,output-generic";
+        #binding-cells = <0>;
+        control-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
+    };
+
+    ob_erm0_in: ob_generic_erm0_in {
+        compatible = "zmk,output-behavior-generic";
+        #binding-cells = <0>;
+        device = <&erm0>;
+        delay = <1>;
+        time-to-live-ms = <30>;
+    };
+
+    erm0_obl {
+        compatible = "zmk,output-behavior-listener";
+        layers = <0>;
+        sources = <OUTPUT_SOURCE_KEYCODE_STATE_CHANGE>;
+        bindings = <&ob_erm0_in>;
+    };
+};
+
 &mt {
     flavor = "tap-unless-interrupted";
     tapping-term-ms = <140>;

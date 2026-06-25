@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: quietlyflowing
       url-base: https://github.com/quietlyflowing
+    - name: badjeff
+      url-base: https://github.com/badjeff
       # Additional modules containing boards/shields/custom code can be listed here as well.
       # See:
       # - https://zmk.dev/docs/features/modules
@@ -19,6 +21,10 @@ manifest:
       revision: main
     - name: zmk-hid-io-plover-hid
       remote: quietlyflowing
+      revision: main
+    # Haptic feedback test (smoke-test v0.3.0 compat) — see try-haptic-drv2605 branch
+    - name: zmk-output-behavior-listener
+      remote: badjeff
       revision: main
     - name: zmk
       remote: zmkfirmware
